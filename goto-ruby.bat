@@ -1,7 +1,5 @@
 @echo off
 
-REM TODO check if Ruby is already there
-
 SET DIR=%~dp0
 
 if not exist %DIR%\windows_data\ruby\rubyinstaller-2.6.3-1-x86\bin\ruby.exe (
