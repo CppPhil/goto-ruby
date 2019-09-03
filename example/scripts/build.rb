@@ -1,3 +1,5 @@
+# TODO: Handle MS Window and GNU/Linux differences
+
 dir=File.expand_path(File.dirname(__FILE__))
 
 c_src = [
