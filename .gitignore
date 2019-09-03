@@ -128,3 +128,6 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/vim,ruby,linux,windows,visualstudiocode
 
+# Windows specifics
+windows_data/7z
+windows_data/ruby
