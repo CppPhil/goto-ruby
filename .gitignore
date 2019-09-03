@@ -33,7 +33,6 @@
 *.dylib
 
 # Executables
-*.exe
 *.out
 *.app
 *.i*86
@@ -204,3 +203,6 @@ $RECYCLE.BIN/
 # Windows specifics
 windows_data/7z
 windows_data/ruby
+
+# Executables
+example/executable
