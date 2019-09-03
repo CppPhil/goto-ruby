@@ -1,11 +1,6 @@
 Windows support:
   Mimic GNU/Linux script behavior.
   Check if Ruby is already there.
-  Download some portable version of 7z or something like that to be
-  able to unzip the Ruby version we're downloading.
-  Required option of which Ruby version to download.
-  Optional option to delete all of Ruby after we're done 
-  running the Ruby script.
   Add fancy COMSPEC thingie so that the batch script can be used
   comfortably from Windows explorer.exe.
   Test the stuff on GNU/Linux and MS Windows with some dummy project

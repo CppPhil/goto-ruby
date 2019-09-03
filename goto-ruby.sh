@@ -37,4 +37,3 @@ fi
 
 ruby "$@"
 exit 0
-
