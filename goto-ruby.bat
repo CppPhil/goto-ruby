@@ -2,12 +2,23 @@
 
 SET DIR=%~dp0
 
-if not exist %DIR%\windows_data\ruby\rubyinstaller-2.6.3-1-x86\bin\ruby.exe (
-    mkdir %DIR%\windows_data\7z
-    %DIR%\windows_data\7z1900.exe /S /D="%DIR%\windows_data\7z"
+SET WINDATA=%DIR%\windows_data
 
-    mkdir %DIR%\windows_data\ruby
-    %DIR%\windows_data\7z\7z.exe x %DIR%\windows_data\rubyinstaller-2.6.3-1-x86.7z -y -o%DIR%\windows_data\ruby > nul
+SET RUBY_BASE_DIR=%WINDATA%\ruby
+SET RUBY_BIN=%RUBY_BASE_DIR%\rubyinstaller-2.6.3-1-x86\bin
+SET RUBY_EXE=%RUBY_BIN%\ruby.exe
+SET RUBY_ARCHIVE=%WINDATA%\rubyinstaller-2.6.3-1-x86.7z
+
+SET SEVEN_ZIP_DIR=%WINDATA%\7z
+SET SEVEN_ZIP_INSTALLER=%WINDATA%\7z1900.exe
+SET SEVEN_ZIP_EXE=%SEVEN_ZIP_DIR%\7z.exe
+
+if not exist %RUBY_EXE% (
+    mkdir %SEVEN_ZIP_DIR%
+    %SEVEN_ZIP_INSTALLER% /S /D="%SEVEN_ZIP_DIR%"
+
+    mkdir %RUBY_BASE_DIR%
+    %SEVEN_ZIP_EXE% x %RUBY_ARCHIVE% -y -o%RUBY_BASE_DIR% > nul
 )
 
 If "%~1"=="" goto HELP
@@ -24,7 +35,7 @@ If "%~1"=="/h" goto HELP
 
 If "%~1"=="/?" goto HELP
 
-%DIR%\windows_data\ruby\rubyinstaller-2.6.3-1-x86\bin\ruby.exe %*
+%RUBY_EXE% %*
 exit /b 0
 
 :HELP
