@@ -24,7 +24,7 @@ If "%~1"=="/h" goto HELP
 
 If "%~1"=="/?" goto HELP
 
-%DIR%\windows_data\ruby\rubyinstaller-2.6.3-1-x86\bin\rubyw.exe "%*"
+%DIR%\windows_data\ruby\rubyinstaller-2.6.3-1-x86\bin\ruby.exe "%*"
 exit /b 0
 
 :HELP
