@@ -25,10 +25,11 @@ CC = "gcc"
 CXX = "g++"
 
 CFLAGS = "-std=c99 " + flags
-CXXFLAGS = "-std=c++17 -I" + dir + "/../c_lib " + flags + " -L" + dir + "/.. -lprint"
+CXXFLAGS = "-std=c++17 -I" + dir + "/../c_lib " + flags
 
 system("rm -f " + dir + "/../*.o")
 system("rm -f " + dir + "/../libprint.a")
+system("rm -f " + dir + "/../executable")
 
 c_src.each do |src|
     system(CC + " " + CFLAGS + " -c " + src)
