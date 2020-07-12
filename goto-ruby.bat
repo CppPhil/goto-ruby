@@ -36,6 +36,7 @@ If "%~1"=="/h" goto HELP
 If "%~1"=="/?" goto HELP
 
 %RUBY_EXE% %*
+IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 exit /b 0
 
 :HELP

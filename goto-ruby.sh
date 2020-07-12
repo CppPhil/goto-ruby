@@ -36,4 +36,4 @@ if [ "$whichResult" == "" ]; then
 fi
 
 ruby "$@"
-exit 0
+exit $?
