@@ -1,24 +1,24 @@
 @echo off
 
-SET DIR=%~dp0
+SET DIR="%~dp0"
 
-SET WINDATA=%DIR%\windows_data
+SET WINDATA="%DIR%\windows_data"
 
-SET RUBY_BASE_DIR=%WINDATA%\ruby
-SET RUBY_BIN=%RUBY_BASE_DIR%\rubyinstaller-2.6.3-1-x86\bin
-SET RUBY_EXE=%RUBY_BIN%\ruby.exe
-SET RUBY_ARCHIVE=%WINDATA%\rubyinstaller-2.6.3-1-x86.7z
+SET RUBY_BASE_DIR="%WINDATA%\ruby"
+SET RUBY_BIN="%RUBY_BASE_DIR%\rubyinstaller-2.6.3-1-x86\bin"
+SET RUBY_EXE="%RUBY_BIN%\ruby.exe"
+SET RUBY_ARCHIVE="%WINDATA%\rubyinstaller-2.6.3-1-x86.7z"
 
-SET SEVEN_ZIP_DIR=%WINDATA%\7z
-SET SEVEN_ZIP_INSTALLER=%WINDATA%\7z1900.exe
-SET SEVEN_ZIP_EXE=%SEVEN_ZIP_DIR%\7z.exe
+SET SEVEN_ZIP_DIR="%WINDATA%\7z"
+SET SEVEN_ZIP_INSTALLER="%WINDATA%\7z1900.exe"
+SET SEVEN_ZIP_EXE="%SEVEN_ZIP_DIR%\7z.exe"
 
-if not exist %RUBY_EXE% (
-    mkdir %SEVEN_ZIP_DIR%
-    %SEVEN_ZIP_INSTALLER% /S /D="%SEVEN_ZIP_DIR%"
+if not exist "%RUBY_EXE%" (
+    mkdir "%SEVEN_ZIP_DIR%"
+    "%SEVEN_ZIP_INSTALLER%" /S /D="%SEVEN_ZIP_DIR%"
 
-    mkdir %RUBY_BASE_DIR%
-    %SEVEN_ZIP_EXE% x %RUBY_ARCHIVE% -y -o%RUBY_BASE_DIR% > nul
+    mkdir "%RUBY_BASE_DIR%"
+    "%SEVEN_ZIP_EXE%" x "%RUBY_ARCHIVE%" -y -o"%RUBY_BASE_DIR%" > nul
 )
 
 If "%~1"=="" goto HELP
@@ -35,8 +35,10 @@ If "%~1"=="/h" goto HELP
 
 If "%~1"=="/?" goto HELP
 
-%RUBY_EXE% %*
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+"%RUBY_EXE%" %*
+if errorlevel 1 (
+    exit /b 1
+)
 exit /b 0
 
 :HELP
